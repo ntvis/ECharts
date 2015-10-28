@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -40,6 +40,14 @@ public class Timeline extends AbstractData<Timeline> implements Component {
      * 默认值true,显示策略，可选为：true（显示） | false（隐藏）
      */
     private Boolean show;
+    /**
+     * 一级层叠控制。每一个不同的zlevel将产生一个独立的canvas，相同zlevel的组件或图标将在同一个canvas上渲染。zlevel越高越靠顶层，canvas对象增多会消耗更多的内存和性能，并不建议设置过多的zlevel，大部分情况可以通过二级层叠控制z实现层叠控制
+     */
+    private Integer zlevel;
+    /**
+     * 二级层叠控制，同一个canvas（相同zlevel）上z越高约靠顶层
+     */
+    private Integer z;
     /**
      * 默认为time,模式是时间类型，时间轴间隔根据时间跨度计算，可选为：'number'
      *
@@ -86,13 +94,13 @@ public class Timeline extends AbstractData<Timeline> implements Component {
      */
     private String backgroundColor;
     /**
-     * 默认值#ccc，边框颜色
-     */
-    private String borderColor;
-    /**
      * 默认值0，边框线宽
      */
     private Integer borderWidth;
+    /**
+     * 默认值#ccc，边框颜色
+     */
+    private String borderColor;
     /**
      * 默认值5，内边距，单位px，默认各方向内边距为5，接受数组分别设定上右下左边距，同css，见下图
      */
@@ -557,6 +565,40 @@ public class Timeline extends AbstractData<Timeline> implements Component {
     }
 
     /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public Timeline zlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+        return this;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer zlevel() {
+        return this.zlevel;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+    public Timeline z(Integer z) {
+        this.z = z;
+        return this;
+    }
+
+    /**
+     * 获取z值
+     */
+    public Integer z() {
+        return this.z;
+    }
+
+    /**
      * 获取lineStyle值
      */
     public LineStyle getLineStyle() {
@@ -620,171 +662,371 @@ public class Timeline extends AbstractData<Timeline> implements Component {
         this.controlStyle = controlStyle;
     }
 
+    /**
+     * 获取show值
+     */
     public Boolean getShow() {
         return show;
     }
 
+    /**
+     * 设置show值
+     *
+     * @param show
+     */
     public void setShow(Boolean show) {
         this.show = show;
     }
 
-    public TimeLineType getType() {
+    /**
+     * 获取type值
+     */
+	public TimeLineType getType() {
         return type;
     }
 
+    /**
+     * 设置type值
+     *
+     * @param type
+     */
     public void setType(TimeLineType type) {
         this.type = type;
     }
 
-    public Boolean getNotMerge() {
+    /**
+     * 获取notMerge值
+     */
+	public Boolean getNotMerge() {
         return notMerge;
     }
 
-    public void setNotMerge(Boolean notMerge) {
+    /**
+     * 设置notMerge值
+     *
+     * @param notMerge
+     */
+	public void setNotMerge(Boolean notMerge) {
         this.notMerge = notMerge;
     }
 
-    public Boolean getRealtime() {
+    /**
+     * 获取realtime值
+     */
+	public Boolean getRealtime() {
         return realtime;
     }
 
-    public void setRealtime(Boolean realtime) {
+    /**
+     * 设置realtime值
+     *
+     * @param realtime
+     */
+	public void setRealtime(Boolean realtime) {
         this.realtime = realtime;
     }
 
+	/**
+     * 获取x值
+	 */
     public Object getX() {
         return x;
     }
 
-    public void setX(Object x) {
+    /**
+     * 设置x值
+     *
+     * @param x
+	 */
+	public void setX(Object x) {
         this.x = x;
     }
 
+	/**
+     * 获取y值
+	 */
     public Object getY() {
         return y;
     }
 
-    public void setY(Object y) {
+    /**
+     * 设置y值
+     *
+     * @param y
+	 */
+	public void setY(Object y) {
         this.y = y;
     }
 
+	/**
+     * 获取x2值
+	 */
     public Object getX2() {
         return x2;
     }
 
-    public void setX2(Object x2) {
+    /**
+     * 设置x2值
+     *
+     * @param x2
+     */
+	public void setX2(Object x2) {
         this.x2 = x2;
     }
 
+	/**
+     * 获取y2值
+	 */
     public Object getY2() {
         return y2;
     }
 
-    public void setY2(Object y2) {
+    /**
+     * 设置y2值
+     *
+     * @param y2
+     */
+	public void setY2(Object y2) {
         this.y2 = y2;
     }
 
-    public Object getWidth() {
+    /**
+     * 获取width值
+	 */
+	public Object getWidth() {
         return width;
     }
 
-    public void setWidth(Object width) {
+    /**
+     * 设置width值
+     *
+     * @param width
+     */
+	public void setWidth(Object width) {
         this.width = width;
     }
 
-    public Object getHeight() {
+    /**
+     * 获取height值
+	 */
+	public Object getHeight() {
         return height;
     }
 
-    public void setHeight(Object height) {
+    /**
+     * 设置height值
+     *
+     * @param height
+     */
+	public void setHeight(Object height) {
         this.height = height;
     }
 
-    public String getBackgroundColor() {
+    /**
+     * 获取backgroundColor值
+     */
+	public String getBackgroundColor() {
         return backgroundColor;
     }
 
+    /**
+     * 设置backgroundColor值
+     *
+     * @param backgroundColor
+     */
     public void setBackgroundColor(String backgroundColor) {
         this.backgroundColor = backgroundColor;
     }
 
-    public String getBorderColor() {
+    /**
+     * 获取borderColor值
+	 */
+	public String getBorderColor() {
         return borderColor;
     }
 
-    public void setBorderColor(String borderColor) {
+    /**
+     * 设置borderColor值
+     *
+     * @param borderColor
+     */
+	public void setBorderColor(String borderColor) {
         this.borderColor = borderColor;
     }
 
-    public Integer getBorderWidth() {
+    /**
+     * 获取borderWidth值
+	 */
+	public Integer getBorderWidth() {
         return borderWidth;
     }
 
-    public void setBorderWidth(Integer borderWidth) {
+    /**
+     * 设置borderWidth值
+     *
+     * @param borderWidth
+     */
+	public void setBorderWidth(Integer borderWidth) {
         this.borderWidth = borderWidth;
     }
 
-    public Integer getPadding() {
+	/**
+     * 获取padding值
+	 */
+	public Integer getPadding() {
         return padding;
     }
 
-    public void setPadding(Integer padding) {
+    /**
+     * 设置padding值
+     *
+     * @param padding
+     */
+	public void setPadding(Integer padding) {
         this.padding = padding;
     }
 
-    public ControlPosition getControlPosition() {
+    /**
+     * 获取controlPosition值
+     */
+	public ControlPosition getControlPosition() {
         return controlPosition;
     }
 
+    /**
+     * 设置controlPosition值
+     *
+     * @param controlPosition
+     */
     public void setControlPosition(ControlPosition controlPosition) {
         this.controlPosition = controlPosition;
     }
 
+	/**
+     * 获取autoPlay值
+     */
     public Boolean getAutoPlay() {
         return autoPlay;
     }
 
-    public void setAutoPlay(Boolean autoPlay) {
+    /**
+     * 设置autoPlay值
+     *
+     * @param autoPlay
+     */
+	public void setAutoPlay(Boolean autoPlay) {
         this.autoPlay = autoPlay;
     }
 
+	/**
+     * 获取loop值
+     */
     public Boolean getLoop() {
         return loop;
     }
 
+    /**
+     * 设置loop值
+     *
+	 * @param loop
+	 */
     public void setLoop(Boolean loop) {
         this.loop = loop;
     }
 
-    public Integer getPlayInterval() {
+	/**
+     * 获取playInterval值
+	 */
+	public Integer getPlayInterval() {
         return playInterval;
     }
 
-    public void setPlayInterval(Integer playInterval) {
+    /**
+     * 设置playInterval值
+     *
+     * @param playInterval
+     */
+	public void setPlayInterval(Integer playInterval) {
         this.playInterval = playInterval;
     }
 
+	/**
+     * 获取symbol值
+     */
     public Object getSymbol() {
         return symbol;
     }
 
-    public void setSymbol(Object symbol) {
+    /**
+     * 设置symbol值
+     *
+	 * @param symbol
+	 */
+	public void setSymbol(Object symbol) {
         this.symbol = symbol;
     }
 
+	/**
+     * 获取symbolSize值
+     */
     public Object getSymbolSize() {
         return symbolSize;
     }
 
-    public void setSymbolSize(Object symbolSize) {
+    /**
+     * 设置symbolSize值
+     *
+     * @param symbolSize
+     */
+	public void setSymbolSize(Object symbolSize) {
         this.symbolSize = symbolSize;
     }
 
-    public Integer getCurrentIndex() {
+	/**
+     * 获取currentIndex值
+	 */
+	public Integer getCurrentIndex() {
         return currentIndex;
     }
 
-    public void setCurrentIndex(Integer currentIndex) {
+    /**
+     * 设置currentIndex值
+     *
+     * @param currentIndex
+     */
+	public void setCurrentIndex(Integer currentIndex) {
         this.currentIndex = currentIndex;
+    }
+
+	/**
+     * 获取zlevel值
+     */
+    public Integer getZlevel() {
+        return zlevel;
+    }
+
+    /**
+     * 设置zlevel值
+     *
+	 * @param zlevel
+	 */
+	public void setZlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+    }
+
+    /**
+     * 获取z值
+     */
+    public Integer getZ() {
+        return z;
+    }
+
+	/**
+     * 设置z值
+	 * 
+	 * @param z
+	 */
+	public void setZ(Integer z) {
+        this.z = z;
     }
 }

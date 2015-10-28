@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,18 +24,16 @@
 
 package com.github.abel533.echarts.series;
 
+import java.io.Serializable;
+
 /**
  * 图形炫光特效
  *
  * @author liuzh
  */
-public class Effect implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class Effect implements Serializable {
 
-    public static enum Type {
-        scale,bounce
-    }
-
+    private static final long serialVersionUID = 2768587032945006946L;
     /**
      * 特效类型，默认为'scale'（放大），可选还有'bounce'（跳动）
      *
@@ -74,10 +72,11 @@ public class Effect implements java.io.Serializable {
      * 跳动距离，单位为px，type为bounce时有效
      */
     private Integer bounceDistance;
+
     /**
      * 获取type值
      */
-    public Type type(){
+    public Type type() {
         return this.type;
     }
 
@@ -86,7 +85,7 @@ public class Effect implements java.io.Serializable {
      *
      * @param type
      */
-    public Effect type(Type type){
+    public Effect type(Type type) {
         this.type = type;
         return this;
     }
@@ -213,7 +212,7 @@ public class Effect implements java.io.Serializable {
     /**
      * 获取bounceDistance值
      */
-    public Integer bounceDistance(){
+    public Integer bounceDistance() {
         return this.bounceDistance;
     }
 
@@ -222,7 +221,7 @@ public class Effect implements java.io.Serializable {
      *
      * @param bounceDistance
      */
-    public Effect bounceDistance(Integer bounceDistance){
+    public Effect bounceDistance(Integer bounceDistance) {
         this.bounceDistance = bounceDistance;
         return this;
     }
@@ -369,5 +368,9 @@ public class Effect implements java.io.Serializable {
      */
     public void setBounceDistance(Integer bounceDistance) {
         this.bounceDistance = bounceDistance;
+    }
+
+    public static enum Type {
+        scale, bounce
     }
 }

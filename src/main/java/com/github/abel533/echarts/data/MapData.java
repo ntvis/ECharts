@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,16 @@
 
 package com.github.abel533.echarts.data;
 
+import java.io.Serializable;
+
 /**
  * MapData
  *
  * @author liuzh
  */
-public class MapData implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class MapData implements Serializable {
+
+    private static final long serialVersionUID = 7814199168511760158L;
 
     private String name;
     private Object value;

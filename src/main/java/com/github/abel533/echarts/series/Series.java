@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -105,6 +105,18 @@ public abstract class Series<T> extends AbstractData<T> implements Chart {
      * 标志图形默认只有主轴显示（随主轴标签间隔隐藏策略），如需全部显示可把showAllSymbol设为true
      */
     private Boolean showAllSymbol;
+    /**
+     * 重新计算
+     */
+    private Boolean calculable;
+    /**
+     * 一级层叠控制
+     */
+    private Integer zlevel;
+    /**
+     * 二级层叠控制
+     */
+    private Integer z;
 
     /**
      * 构造函数
@@ -119,6 +131,40 @@ public abstract class Series<T> extends AbstractData<T> implements Chart {
      */
     protected Series(String name) {
         this.name = name;
+    }
+
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public T zlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+        return (T) this;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer zlevel() {
+        return this.zlevel;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+    public T z(Integer z) {
+        this.z = z;
+        return (T) this;
+    }
+
+    /**
+     * 获取z值
+     */
+    public Integer z() {
+        return this.z;
     }
 
     /**
@@ -382,6 +428,24 @@ public abstract class Series<T> extends AbstractData<T> implements Chart {
     }
 
     /**
+     * 设置calculable值
+     *
+     * @param calculable
+     * @return
+     */
+    public T calcuable(Boolean calculable) {
+        this.calculable = calculable;
+        return (T) this;
+    }
+
+    /**
+     * 获取calculable值
+     */
+    public Boolean calculable() {
+        return this.calculable;
+    }
+
+    /**
      * 设置showAllSymbol值
      *
      * @param showAllSymbol
@@ -615,5 +679,53 @@ public abstract class Series<T> extends AbstractData<T> implements Chart {
      */
     public void setShowAllSymbol(Boolean showAllSymbol) {
         this.showAllSymbol = showAllSymbol;
+    }
+
+    /**
+     * 获取calculable值
+     */
+    public Boolean getCalculable() {
+        return calculable;
+    }
+
+    /**
+     * 设置calculable值
+     *
+     * @param calculable
+     */
+    public void setCalculable(Boolean calculable) {
+        this.calculable = calculable;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer getZlevel() {
+        return zlevel;
+    }
+
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public void setZlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+    }
+
+    /**
+     * 获取z值
+	 */
+	public Integer getZ() {
+        return z;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+	public void setZ(Integer z) {
+        this.z = z;
     }
 }

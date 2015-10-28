@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -67,7 +67,7 @@ public class Tooltip extends Basic<Tooltip> implements Component {
      */
     private Double transitionDuration;
     /**
-     * 2.1.9新增属性，默认true，含义未知
+     * 2.1.9新增属性，默认true，鼠标是否可进入详情气泡中，默认为false，如需详情内交互，如添加链接，按钮，可设置为true。
      *
      * @since 2.1.9
      */
@@ -243,11 +243,19 @@ public class Tooltip extends Basic<Tooltip> implements Component {
         return this;
     }
 
-    public Boolean enterable(){
+    /**
+     * 获取enterable值
+     */
+    public Boolean enterable() {
         return this.enterable;
     }
 
-    public Tooltip enterable(Boolean enterable){
+    /**
+     * 设置enterable值
+     *
+     * @param enterable
+     */
+    public Tooltip enterable(Boolean enterable) {
         this.enterable = enterable;
         return this;
     }
@@ -419,10 +427,18 @@ public class Tooltip extends Basic<Tooltip> implements Component {
         this.transitionDuration = transitionDuration;
     }
 
+    /**
+     * 获取enterable值
+     */
     public Boolean getEnterable() {
         return enterable;
     }
 
+    /**
+     * 设置enterable值
+     *
+     * @param enterable
+     */
     public void setEnterable(Boolean enterable) {
         this.enterable = enterable;
     }

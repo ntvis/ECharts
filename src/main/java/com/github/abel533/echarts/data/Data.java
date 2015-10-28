@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -327,10 +327,18 @@ public class Data extends BasicData<Data> {
         this.tooltip = tooltip;
     }
 
+    /**
+     * 获取smoothRadian值
+     */
     public Double getSmoothRadian() {
         return smoothRadian;
     }
 
+    /**
+     * 设置smoothRadian值
+     *
+     * @param smoothRadian
+     */
     public void setSmoothRadian(Double smoothRadian) {
         this.smoothRadian = smoothRadian;
     }

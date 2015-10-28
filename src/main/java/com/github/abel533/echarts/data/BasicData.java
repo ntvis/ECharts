@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,6 +29,7 @@ import com.github.abel533.echarts.code.Symbol;
 import com.github.abel533.echarts.style.ItemStyle;
 import com.github.abel533.echarts.style.TextStyle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,8 +39,9 @@ import java.util.List;
  *
  * @author liuzh
  */
-public abstract class BasicData<T> implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public abstract class BasicData<T> implements Serializable {
+
+    private static final long serialVersionUID = 3510060011221090087L;
 
     private String name;
     private String text;
@@ -213,7 +215,7 @@ public abstract class BasicData<T> implements java.io.Serializable {
             this.value = new ArrayList<Object>(values.length);
         }
         if (this.value instanceof List) {
-            ((List)this.value).addAll(Arrays.asList(values));
+            ((List) this.value).addAll(Arrays.asList(values));
         }
         return (T) this;
     }

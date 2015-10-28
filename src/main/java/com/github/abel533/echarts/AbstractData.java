@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -35,7 +35,12 @@ import java.util.List;
  */
 public abstract class AbstractData<T> implements Data<T>, java.io.Serializable {
     private static final long serialVersionUID = 1L;
-
+    /**
+     * 标线图形数据
+     *
+     * @see com.github.abel533.echarts.data.PointData
+     */
+    protected List<Object> data;
     /**
      * 是否可点击，默认开启
      */
@@ -46,12 +51,6 @@ public abstract class AbstractData<T> implements Data<T>, java.io.Serializable {
      * @since 2.2.0
      */
     private Boolean hoverable;
-    /**
-     * 标线图形数据
-     *
-     * @see com.github.abel533.echarts.data.PointData
-     */
-    protected List<Object> data;
 
     /**
      * 获取data值

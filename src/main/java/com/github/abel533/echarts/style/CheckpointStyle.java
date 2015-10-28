@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts.style;
 
 import com.github.abel533.echarts.Label;
 
+import java.io.Serializable;
+
 /**
  * 时间轴当前点，该类只在Timeline中使用
  *
  * @author liuzh
  */
-public class CheckpointStyle implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class CheckpointStyle implements Serializable {
+
+    private static final long serialVersionUID = -5003403667974720869L;
 
     /**
      * 当前点symbol，默认随轴上的symbol

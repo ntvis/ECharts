@@ -1,27 +1,3 @@
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2014 abel533@gmail.com
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
 /**
  * echarts默认配置项
  *
@@ -38,6 +14,9 @@ define(function() {
         CHART_TYPE_SCATTER: 'scatter',
         CHART_TYPE_PIE: 'pie',
         CHART_TYPE_RADAR: 'radar',
+        CHART_TYPE_VENN: 'venn',
+        CHART_TYPE_TREEMAP: 'treemap',
+        CHART_TYPE_TREE: 'tree',
         CHART_TYPE_MAP: 'map',
         CHART_TYPE_K: 'k',
         CHART_TYPE_ISLAND: 'island',
@@ -46,6 +25,7 @@ define(function() {
         CHART_TYPE_GAUGE: 'gauge',
         CHART_TYPE_FUNNEL: 'funnel',
         CHART_TYPE_EVENTRIVER: 'eventRiver',
+        CHART_TYPE_WORDCLOUD: 'wordCloud',
 
         // 组件类型
         COMPONENT_TYPE_TITLE: 'title',
@@ -94,7 +74,7 @@ define(function() {
             itemStyle: {
                 normal: {
                     // color: 各异，
-                    // borderColor: 各异,        // 标注边线颜色，优先于color
+                    // borderColor: 各异,        // 标注边线颜色，优先于color 
                     borderWidth: 2,             // 标注边线线宽，单位px，默认为1
                     label: {
                         show: true,
@@ -146,7 +126,7 @@ define(function() {
             itemStyle: {
                 normal: {
                     // color: 各异,               // 标线主色，线色，symbol主色
-                    // borderColor: 随color,     // 标线symbol边框颜色，优先于color
+                    // borderColor: 随color,     // 标线symbol边框颜色，优先于color 
                     borderWidth: 1.5,           // 标线symbol边框线宽，单位px，默认为2
                     label: {
                         show: true,

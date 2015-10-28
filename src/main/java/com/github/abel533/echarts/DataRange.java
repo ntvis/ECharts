@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,6 +25,8 @@
 package com.github.abel533.echarts;
 
 import com.github.abel533.echarts.code.Orient;
+import com.github.abel533.echarts.code.SelectedMode;
+import com.github.abel533.echarts.data.RangeData;
 import com.github.abel533.echarts.style.TextStyle;
 
 import java.util.ArrayList;
@@ -98,6 +100,88 @@ public class DataRange extends Basic<DataRange> implements Component {
     private Boolean hoverLink;
 
     /**
+     * 用于设置dataRange的初始选中范围。calculable为true时有效。
+     */
+    private RangeData range;
+    /**
+     * 自定义分割方式，支持不等距分割。splitList被指定时，splitNumber将被忽略。
+     */
+    private List<RangeData> splitList;
+    /**
+     * 选择模式，默认开启图例开关
+     *
+     * @see com.github.abel533.echarts.code.SelectedMode
+     */
+    private Object selectedMode;
+
+    /**
+     * 获取selectedMode值
+     */
+    public Object selectedMode() {
+        return this.selectedMode;
+    }
+
+    /**
+     * 设置selectedMode值
+     *
+     * @param selectedMode
+     */
+    public DataRange selectedMode(Object selectedMode) {
+        this.selectedMode = selectedMode;
+        return this;
+    }
+
+    /**
+     * 设置selectedMode值
+     *
+     * @param selectedMode
+     */
+    public DataRange selectedMode(SelectedMode selectedMode) {
+        this.selectedMode = selectedMode;
+        return this;
+    }
+
+    /**
+     * 设置range值
+     *
+     * @param range
+     */
+    public DataRange range(RangeData range) {
+        this.range = range;
+        return this;
+    }
+
+    /**
+     * 获取range值
+     */
+	public RangeData range() {
+        return this.range;
+    }
+
+    /**
+     * 设置splitList值
+     *
+     * @param splitList
+     */
+    public DataRange splitList(RangeData... splitList) {
+        if (splitList == null || splitList.length == 0) {
+            return this;
+        }
+        this.splitList().addAll(Arrays.asList(splitList));
+        return this;
+    }
+
+    /**
+     * 获取splitList值
+     */
+	public List<RangeData> splitList() {
+        if (this.splitList == null) {
+            this.splitList = new ArrayList<RangeData>();
+        }
+        return this.splitList;
+    }
+
+    /**
      * 设置color值
      *
      * @param color
@@ -120,7 +204,7 @@ public class DataRange extends Basic<DataRange> implements Component {
     /**
      * 获取hoverLink值
      */
-    public Boolean hoverLink(){
+    public Boolean hoverLink() {
         return this.hoverLink;
     }
 
@@ -129,7 +213,7 @@ public class DataRange extends Basic<DataRange> implements Component {
      *
      * @param hoverLink
      */
-    public DataRange hoverLink(Boolean hoverLink){
+    public DataRange hoverLink(Boolean hoverLink) {
         this.hoverLink = hoverLink;
         return this;
     }
@@ -594,5 +678,53 @@ public class DataRange extends Basic<DataRange> implements Component {
      */
     public void setHoverLink(Boolean hoverLink) {
         this.hoverLink = hoverLink;
+    }
+
+    /**
+     * 获取range值
+     */
+	public RangeData getRange() {
+        return range;
+    }
+
+    /**
+     * 设置range值
+     *
+     * @param range
+     */
+    public void setRange(RangeData range) {
+        this.range = range;
+    }
+
+    /**
+     * 获取splitList值
+     */
+    public List<RangeData> getSplitList() {
+        return splitList;
+    }
+
+    /**
+     * 设置splitList值
+     *
+     * @param splitList
+     */
+    public void setSplitList(List<RangeData> splitList) {
+        this.splitList = splitList;
+    }
+
+    /**
+     * 获取selectedMode值
+     */
+	public Object getSelectedMode() {
+        return selectedMode;
+    }
+
+    /**
+     * 设置selectedMode值
+     *
+     * @param selectedMode
+     */
+    public void setSelectedMode(Object selectedMode) {
+        this.selectedMode = selectedMode;
     }
 }

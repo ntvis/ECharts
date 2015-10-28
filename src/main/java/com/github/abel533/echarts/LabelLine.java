@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts;
 
 import com.github.abel533.echarts.style.LineStyle;
 
+import java.io.Serializable;
+
 /**
  * 标签视觉引导线l
  *
  * @author liuzh
  */
-public class LabelLine implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class LabelLine implements Serializable {
+
+    private static final long serialVersionUID = 3359589478018844177L;
 
     /**
      * 饼图标签视觉引导线显示策略，可选为：true（显示） | false（隐藏）
@@ -121,18 +124,34 @@ public class LabelLine implements java.io.Serializable {
         this.lineStyle = lineStyle;
     }
 
+    /**
+     * 获取show值
+     */
     public Boolean getShow() {
         return show;
     }
 
+    /**
+     * 设置show值
+     *
+     * @param show
+     */
     public void setShow(Boolean show) {
         this.show = show;
     }
 
+    /**
+     * 获取length值
+     */
     public Integer getLength() {
         return length;
     }
 
+    /**
+     * 设置length值
+     *
+     * @param length
+     */
     public void setLength(Integer length) {
         this.length = length;
     }

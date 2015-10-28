@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,11 +27,12 @@ package com.github.abel533.echarts.feature;
 import com.github.abel533.echarts.style.LineStyle;
 import com.github.abel533.echarts.style.TextStyle;
 
+import java.io.Serializable;
+
 /**
  * @author liuzh
  */
-public class Feature implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class Feature implements Serializable {
 
     /**
      * 获取DataView值
@@ -57,7 +58,7 @@ public class Feature implements java.io.Serializable {
      * 获取Restore值
      */
     public static final Restore restore = new Restore();
-
+    private static final long serialVersionUID = 8546465308711709471L;
     /**
      * 是否显示
      */

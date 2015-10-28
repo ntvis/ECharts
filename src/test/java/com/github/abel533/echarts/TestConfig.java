@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -31,7 +31,7 @@ public interface TestConfig {
     /**
      * 测试文件生成的目录
      */
-    String EXPORT_PATH = "d:/echarts/sample";
+    String EXPORT_PATH = "/tmp/echarts/";
 
     /**
      * 通过view控制所有测试是否打开浏览器

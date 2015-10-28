@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -38,6 +38,13 @@ public class CategoryAxis extends Axis<CategoryAxis> {
     private Boolean boundaryGap;
 
     /**
+     * 构造函数
+     */
+    public CategoryAxis() {
+        this.type(AxisType.category);
+    }
+
+    /**
      * 获取boundaryGap值
      */
     public Boolean boundaryGap() {
@@ -55,15 +62,7 @@ public class CategoryAxis extends Axis<CategoryAxis> {
     }
 
     /**
-     * 构造函数
-     */
-    public CategoryAxis() {
-        this.type(AxisType.category);
-    }
-
-    /**
      * 获取boundaryGap值
-     *
      */
     public Boolean getBoundaryGap() {
         return boundaryGap;

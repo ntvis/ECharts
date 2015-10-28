@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -28,14 +28,18 @@ import com.github.abel533.echarts.code.PointerType;
 import com.github.abel533.echarts.style.CrossStyle;
 import com.github.abel533.echarts.style.LineStyle;
 import com.github.abel533.echarts.style.ShadowStyle;
+import com.github.abel533.echarts.style.TextStyle;
+
+import java.io.Serializable;
 
 /**
  * 坐标轴指示器，坐标轴触发有效
  *
  * @author liuzh
  */
-public class AxisPointer implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class AxisPointer implements Serializable {
+
+    private static final long serialVersionUID = 6421899185681683630L;
 
     /**
      * 默认为直线，可选为：'line' | 'shadow' | 'cross'
@@ -57,6 +61,30 @@ public class AxisPointer implements java.io.Serializable {
      * 设置阴影指示器
      */
     private ShadowStyle shadowStyle;
+    /**
+     * 文本样式
+     */
+    private TextStyle textStyle;
+
+    /**
+     * 获取textStyle值
+     */
+    public TextStyle textStyle() {
+        return this.textStyle;
+    }
+
+    /**
+     * 设置textStyle值
+     *
+     * @param textStyle
+     */
+    public AxisPointer textStyle(TextStyle textStyle) {
+        if (this.textStyle == null) {
+            this.textStyle = new TextStyle();
+        }
+        this.textStyle = textStyle;
+        return this;
+    }
 
     /**
      * 设置lineStyle值
@@ -199,5 +227,21 @@ public class AxisPointer implements java.io.Serializable {
      */
     public void setType(PointerType type) {
         this.type = type;
+    }
+
+    /**
+     * 获取textStyle值
+     */
+    public TextStyle getTextStyle() {
+        return textStyle;
+    }
+
+    /**
+     * 设置textStyle值
+     *
+     * @param textStyle
+     */
+    public void setTextStyle(TextStyle textStyle) {
+        this.textStyle = textStyle;
     }
 }

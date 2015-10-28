@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -73,6 +73,48 @@ public abstract class Basic<T> implements Serializable {
      * 主副标题纵向间隔，单位px，默认为10
      */
     private Integer itemGap;
+    /**
+     * 一级层叠控制
+     */
+    private Integer zlevel;
+    /**
+     * 二级层叠控制
+     */
+    private Integer z;
+
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public T zlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+        return (T) this;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer zlevel() {
+        return this.zlevel;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+    public T z(Integer z) {
+        this.z = z;
+        return (T) this;
+    }
+
+    /**
+     * 获取z值
+     */
+    public Integer z() {
+        return this.z;
+    }
 
     /**
      * 获取show值
@@ -356,6 +398,15 @@ public abstract class Basic<T> implements Serializable {
     }
 
     /**
+     * 设置padding值
+     *
+     * @param padding
+     */
+    public void setPadding(Object padding) {
+        this.padding = padding;
+    }
+
+    /**
      * 获取itemGap值
      */
     public Integer getItemGap() {
@@ -371,7 +422,35 @@ public abstract class Basic<T> implements Serializable {
         this.itemGap = itemGap;
     }
 
-    public void setPadding(Object padding) {
-        this.padding = padding;
+    /**
+     * 获取zlevel值
+     */
+	public Integer getZlevel() {
+        return zlevel;
+    }
+
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public void setZlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+    }
+
+	/**
+     * 获取z值
+	 */
+	public Integer getZ() {
+        return z;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+	public void setZ(Integer z) {
+        this.z = z;
     }
 }

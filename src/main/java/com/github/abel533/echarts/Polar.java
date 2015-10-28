@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -110,7 +110,48 @@ public class Polar extends AbstractData<Polar> implements Component {
      * 雷达指标列表，同时也是label内容
      */
     private List<Object> indicator;
+    /**
+     * 一级层叠控制
+     */
+    private Integer zlevel;
+    /**
+     * 二级层叠控制
+     */
+    private Integer z;
 
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public Polar zlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+        return this;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer zlevel() {
+        return this.zlevel;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+    public Polar z(Integer z) {
+        this.z = z;
+        return this;
+    }
+
+    /**
+     * 获取z值
+     */
+    public Integer z() {
+        return this.z;
+    }
     /**
      * 获取center值
      */
@@ -679,6 +720,38 @@ public class Polar extends AbstractData<Polar> implements Component {
      */
     public void setType(PolarType type) {
         this.type = type;
+    }
+
+    /**
+     * 获取zlevel值
+     */
+    public Integer getZlevel() {
+        return zlevel;
+    }
+
+    /**
+     * 设置zlevel值
+     *
+     * @param zlevel
+     */
+    public void setZlevel(Integer zlevel) {
+        this.zlevel = zlevel;
+    }
+
+    /**
+     * 获取z值
+	 */
+	public Integer getZ() {
+        return z;
+    }
+
+    /**
+     * 设置z值
+     *
+     * @param z
+     */
+	public void setZ(Integer z) {
+        this.z = z;
     }
 
     public static class Name {

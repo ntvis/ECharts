@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -36,6 +36,14 @@ public class Bar extends Series<Bar> {
      * 柱条最小高度，可用于防止某item的值过小而影响交互
      */
     private Integer barMinHeight;
+    /**
+     * 柱条（K线蜡烛）宽度，不设时自适应
+     */
+    private Integer barWidth;
+    /**
+     * 柱条（K线蜡烛）最大宽度，不设时自适应
+     */
+    private Integer barMaxWidth;
     /**
      * 柱间距离，默认为柱形宽度的30%，可设固定值
      */
@@ -76,6 +84,40 @@ public class Bar extends Series<Bar> {
      */
     public Bar barMinHeight(Integer barMinHeight) {
         this.barMinHeight = barMinHeight;
+        return this;
+    }
+
+    /**
+     * 获取barWidth值
+     */
+    public Integer barWidth() {
+        return this.barWidth;
+    }
+
+    /**
+     * 设置barWidth值
+     *
+     * @param barWidth
+     */
+    public Bar barWidth(Integer barWidth) {
+        this.barWidth = barWidth;
+        return this;
+    }
+
+    /**
+     * 获取barMaxWidth值
+     */
+    public Integer barMaxWidth() {
+        return this.barMaxWidth;
+    }
+
+    /**
+     * 设置barMaxWidth值
+     *
+     * @param barMaxWidth
+     */
+    public Bar barMaxWidth(Integer barMaxWidth) {
+        this.barMaxWidth = barMaxWidth;
         return this;
     }
 
@@ -159,5 +201,37 @@ public class Bar extends Series<Bar> {
      */
     public void setBarCategoryGap(String barCategoryGap) {
         this.barCategoryGap = barCategoryGap;
+    }
+
+    /**
+     * 获取barWidth
+     */
+    public Integer getBarWidth() {
+        return barWidth;
+    }
+
+    /**
+     * 设置barWidth
+     *
+     * @param barWidth
+     */
+    public void setBarWidth(Integer barWidth) {
+        this.barWidth = barWidth;
+    }
+
+    /**
+     * 获取barMaxWidth
+     */
+    public Integer getBarMaxWidth() {
+        return barMaxWidth;
+    }
+
+    /**
+     * 设置barMaxWidth
+     *
+     * @param barMaxWidth
+     */
+    public void setBarMaxWidth(Integer barMaxWidth) {
+        this.barMaxWidth = barMaxWidth;
     }
 }

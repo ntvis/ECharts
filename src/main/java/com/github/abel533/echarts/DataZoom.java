@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -49,6 +49,10 @@ public class DataZoom extends Basic<DataZoom> implements Component {
      */
     private String handleColor;
     /**
+     * 控制手柄大小
+     */
+    private Integer handleSize;
+    /**
      * 当不指定时默认控制所有横向类目，可通过数组指定多个需要控制的横向类目坐标轴Index，仅一个时可直接为数字
      */
     private Object xAxisIndex;
@@ -76,6 +80,23 @@ public class DataZoom extends Basic<DataZoom> implements Component {
      * 缩放变化是否显示定位详情
      */
     private Boolean showDetail;
+
+    /**
+     * 获取handleSize值
+     */
+    public Integer handleSize() {
+        return this.handleSize;
+    }
+
+    /**
+     * 设置handleSize值
+     *
+     * @param handleSize
+     */
+    public DataZoom handleSize(Integer handleSize) {
+        this.handleSize = handleSize;
+        return this;
+    }
 
     /**
      * 获取orient值
@@ -250,7 +271,7 @@ public class DataZoom extends Basic<DataZoom> implements Component {
     /**
      * 获取showDetail值
      */
-    public Boolean showDetail(){
+    public Boolean showDetail() {
         return this.showDetail;
     }
 
@@ -259,7 +280,7 @@ public class DataZoom extends Basic<DataZoom> implements Component {
      *
      * @param showDetail
      */
-    public DataZoom showDetail(Boolean showDetail){
+    public DataZoom showDetail(Boolean showDetail) {
         this.showDetail = showDetail;
         return this;
     }
@@ -438,5 +459,21 @@ public class DataZoom extends Basic<DataZoom> implements Component {
      */
     public void setShowDetail(Boolean showDetail) {
         this.showDetail = showDetail;
+    }
+
+    /**
+     * 获取handleSize值
+     */
+    public Integer getHandleSize() {
+        return handleSize;
+    }
+
+    /**
+     * 设置handleSize值
+     *
+     * @param handleSize
+     */
+    public void setHandleSize(Integer handleSize) {
+        this.handleSize = handleSize;
     }
 }

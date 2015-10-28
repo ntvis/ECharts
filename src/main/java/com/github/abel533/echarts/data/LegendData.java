@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts.data;
 
 import com.github.abel533.echarts.style.TextStyle;
 
+import java.io.Serializable;
+
 /**
  * Description : LegendData
  *
  * @author liuzh
  */
-public class LegendData implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class LegendData implements Serializable {
+
+    private static final long serialVersionUID = 7218201600361155091L;
 
     /**
      * 名称

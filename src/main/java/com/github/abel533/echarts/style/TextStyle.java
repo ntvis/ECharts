@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,8 +24,11 @@
 
 package com.github.abel533.echarts.style;
 
+import com.github.abel533.echarts.code.Baseline;
 import com.github.abel533.echarts.code.FontStyle;
 import com.github.abel533.echarts.code.X;
+
+import java.io.Serializable;
 
 /**
  * 文字样式
@@ -33,23 +36,28 @@ import com.github.abel533.echarts.code.X;
  * @author liuzh
  *         Created by liuzh on 14-8-25.
  */
-public class TextStyle implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class TextStyle implements Serializable {
+
+    private static final long serialVersionUID = 5748410562515851843L;
 
     /**
      * 颜色
      */
     private String color;
     /**
-     * 修饰，仅对tooltip.textStyle生效
-     */
-    private String decoration;
-    /**
      * 水平对齐方式，可选为：'left' | 'right' | 'center'
      *
      * @see com.github.abel533.echarts.code.X
      */
     private X align;
+    /**
+     * 垂直对齐方式
+     */
+    private Baseline baseline;
+    /**
+     * 修饰，仅对tooltip.textStyle生效
+     */
+    private String decoration;
     /**
      * 字号 ，单位px
      */
@@ -73,6 +81,23 @@ public class TextStyle implements java.io.Serializable {
      * @see com.github.abel533.echarts.code.FontWeight
      */
     private Object fontWeight;
+
+    /**
+     * 获取baseline值
+     */
+    public Baseline baseline() {
+        return this.baseline;
+    }
+
+    /**
+     * 设置baseline值
+     *
+     * @param baseline
+     */
+    public TextStyle baseline(Baseline baseline) {
+        this.baseline = baseline;
+        return this;
+    }
 
     /**
      * 获取color值
@@ -336,5 +361,21 @@ public class TextStyle implements java.io.Serializable {
      */
     public void setFontWeight(Object fontWeight) {
         this.fontWeight = fontWeight;
+    }
+
+    /**
+     * 获取baseline值
+     */
+    public Baseline getBaseline() {
+        return baseline;
+    }
+
+    /**
+     * 设置baseline值
+     *
+     * @param baseline
+     */
+    public void setBaseline(Baseline baseline) {
+        this.baseline = baseline;
     }
 }

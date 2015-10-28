@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -50,7 +50,7 @@ public class ScatterTest6 {
     @Test
     public void test() {
         //地址：http://echarts.baidu.com/doc/example/scatter6.html
-        //TODO echarts只能认识js的Date...
+        // echarts只能认识js的Date...
         EnhancedOption option = new EnhancedOption();
         option.title("时间坐标散点图","dataZoom支持");
         option.tooltip().trigger(Trigger.item).formatter("function (params) {" +

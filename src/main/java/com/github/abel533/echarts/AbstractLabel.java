@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,22 +27,21 @@ package com.github.abel533.echarts;
 import com.github.abel533.echarts.code.Position;
 import com.github.abel533.echarts.style.TextStyle;
 
+import java.io.Serializable;
+
 /**
  * Description: Label
  *
  * @author liuzh
  */
-public abstract class AbstractLabel<T> implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public abstract class AbstractLabel<T> implements Serializable {
+
+    private static final long serialVersionUID = -6908403517815789999L;
 
     /**
      * 是否显示，在Timeline中默认true
      */
     private Boolean show;
-    /**
-     * 位置
-     */
-    private Object position;
     /**
      * 挑选间隔，默认为'auto'，可选为：'auto'（自动隐藏显示不下的） | 0（全部显示） | {number}
      */
@@ -52,10 +51,6 @@ public abstract class AbstractLabel<T> implements java.io.Serializable {
      */
     private Integer rotate;
     /**
-     * [Axis有效]坐标轴文本标签是否可点击
-     */
-    private Boolean clickable;
-    /**
      * 间隔名称格式器：{string}（Template） | {Function}
      */
     private Object formatter;
@@ -64,10 +59,17 @@ public abstract class AbstractLabel<T> implements java.io.Serializable {
      */
     private TextStyle textStyle;
     /**
+     * 位置
+     */
+    private Object position;
+    /**
+     * [Axis有效]坐标轴文本标签是否可点击
+     */
+    private Boolean clickable;
+    /**
      * 坐标轴文本标签与坐标轴的间距
      */
     private Integer margin;
-
     /**
      * 颜色
      */

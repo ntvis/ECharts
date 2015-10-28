@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -27,13 +27,16 @@ package com.github.abel533.echarts.data;
 import com.github.abel533.echarts.Tooltip;
 import com.github.abel533.echarts.style.ItemStyle;
 
+import java.io.Serializable;
+
 /**
  * Description: Series.Data
  *
  * @author liuzh
  */
-public class SeriesData implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class SeriesData implements Serializable {
+
+    private static final long serialVersionUID = -3295595963653443202L;
 
     private Object value;
     private Tooltip tooltip;
@@ -140,26 +143,50 @@ public class SeriesData implements java.io.Serializable {
         return this;
     }
 
+    /**
+     * 获取value值
+     */
     public Object getValue() {
         return value;
     }
 
+    /**
+     * 设置value值
+     *
+     * @param value
+     */
     public void setValue(Object value) {
         this.value = value;
     }
 
+    /**
+     * 获取tooltip值
+     */
     public Tooltip getTooltip() {
         return tooltip;
     }
 
+    /**
+     * 设置tooltip值
+     *
+     * @param tooltip
+     */
     public void setTooltip(Tooltip tooltip) {
         this.tooltip = tooltip;
     }
 
+    /**
+     * 获取itemStyle值
+     */
     public ItemStyle getItemStyle() {
         return itemStyle;
     }
 
+    /**
+     * 设置itemStyle值
+     *
+     * @param itemStyle
+     */
     public void setItemStyle(ItemStyle itemStyle) {
         this.itemStyle = itemStyle;
     }

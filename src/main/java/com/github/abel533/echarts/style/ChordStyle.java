@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,13 +24,16 @@
 
 package com.github.abel533.echarts.style;
 
+import java.io.Serializable;
+
 /**
  * 弦样式
  *
  * @author liuzh
  */
-public class ChordStyle implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class ChordStyle implements Serializable {
+
+    private static final long serialVersionUID = -9135284895463659472L;
 
     /**
      * 贝塞尔曲线的宽度
@@ -69,6 +72,7 @@ public class ChordStyle implements java.io.Serializable {
         this.color = color;
         return this;
     }
+
     /**
      * 获取color值
      */

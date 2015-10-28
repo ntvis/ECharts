@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts.data;
 
 import com.github.abel533.echarts.style.TextStyle;
 
+import java.io.Serializable;
+
 /**
  * 自定义样式的数据 - 适用于axis.data
  *
  * @author liuzh
  */
-public class AxisData implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class AxisData implements Serializable {
+
+    private static final long serialVersionUID = -6515942952591477027L;
 
     /**
      * 值

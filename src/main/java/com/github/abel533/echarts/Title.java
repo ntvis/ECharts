@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -410,6 +410,11 @@ public class Title extends Basic<Title> implements Component {
     }
 
 
+    /**
+     * 设置offsetCenter值
+     *
+     * @param offsetCenter
+     */
     public void setOffsetCenter(Object offsetCenter) {
         this.offsetCenter = offsetCenter;
     }

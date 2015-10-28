@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts.axis;
 
 import com.github.abel533.echarts.style.LineStyle;
 
+import java.io.Serializable;
+
 /**
  * 分隔线
  *
  * @author liuzh
  */
-public class SplitLine implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class SplitLine implements Serializable {
+
+    private static final long serialVersionUID = 6968396515815364363L;
 
     /**
      * 默认显示，属性show控制显示与否

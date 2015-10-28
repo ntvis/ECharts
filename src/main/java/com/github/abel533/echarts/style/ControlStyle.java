@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,14 +24,24 @@
 
 package com.github.abel533.echarts.style;
 
+import java.io.Serializable;
+
 /**
  * 时间轴控制器样式
  *
  * @author liuzh
  */
-public class ControlStyle implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class ControlStyle implements Serializable {
 
+    private static final long serialVersionUID = -3442438026749918760L;
+    /**
+     * 按钮大小
+     */
+    private Integer itemSize;
+    /**
+     * 按钮间隔
+     */
+    private Integer itemGap;
     /**
      * 正常
      */
@@ -45,6 +55,40 @@ public class ControlStyle implements java.io.Serializable {
      * 构造函数
      */
     public ControlStyle() {
+    }
+
+    /**
+     * 获取itemSize值
+     */
+    public Integer itemSize() {
+        return this.itemSize;
+    }
+
+    /**
+     * 设置itemSize值
+     *
+     * @param itemSize
+     */
+    public ControlStyle itemSize(Integer itemSize) {
+        this.itemSize = itemSize;
+        return this;
+    }
+
+    /**
+     * 获取itemGap值
+     */
+    public Integer itemGap() {
+        return this.itemGap;
+    }
+
+    /**
+     * 设置itemGap值
+     *
+     * @param itemGap
+     */
+    public ControlStyle itemGap(Integer itemGap) {
+        this.itemGap = itemGap;
+        return this;
     }
 
     /**
@@ -117,6 +161,38 @@ public class ControlStyle implements java.io.Serializable {
      */
     public void setEmphasis(Color emphasis) {
         this.emphasis = emphasis;
+    }
+
+    /**
+     * 获取itemSize值
+     */
+    public Integer getItemSize() {
+        return itemSize;
+    }
+
+    /**
+     * 设置itemSize值
+     *
+     * @param itemSize
+     */
+    public void setItemSize(Integer itemSize) {
+        this.itemSize = itemSize;
+    }
+
+    /**
+     * 获取itemGap值
+     */
+	public Integer getItemGap() {
+        return itemGap;
+    }
+
+    /**
+     * 设置itemGap值
+     *
+     * @param itemGap
+     */
+    public void setItemGap(Integer itemGap) {
+        this.itemGap = itemGap;
     }
 
     public class Color {

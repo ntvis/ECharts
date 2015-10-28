@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -26,13 +26,16 @@ package com.github.abel533.echarts.style;
 
 import com.github.abel533.echarts.code.LinkType;
 
+import java.io.Serializable;
+
 /**
  * Description: LinkStyle
  *
  * @author liuzh
  */
-public class LinkStyle implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class LinkStyle implements Serializable {
+
+    private static final long serialVersionUID = -547421614869188616L;
 
     /**
      * 线条类型，可选为：'curve'（曲线） | 'line'（直线）
@@ -107,6 +110,7 @@ public class LinkStyle implements java.io.Serializable {
 
     /**
      * 设置type值
+     *
      * @param type
      */
     public void setType(LinkType type) {

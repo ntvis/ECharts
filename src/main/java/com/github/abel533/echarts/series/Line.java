@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -24,6 +24,7 @@
 
 package com.github.abel533.echarts.series;
 
+import com.github.abel533.echarts.code.DataFilter;
 import com.github.abel533.echarts.code.SeriesType;
 
 /**
@@ -34,6 +35,11 @@ public class Line extends Series<Line> {
      * 平滑曲线
      */
     private Boolean smooth;
+    /**
+     * ECharts 会在折线图的数据数量大于实际显示的像素宽度（高度）的时候会启用优化，对显示在一个像素宽度内的数据做筛选，该选项是指明数据筛选的策略
+     * @see DataFilter
+     */
+    private Object dataFilter;
 
     /**
      * 构造函数
@@ -50,6 +56,33 @@ public class Line extends Series<Line> {
     public Line(String name) {
         super(name);
         this.type(SeriesType.line);
+    }
+
+    /**
+     * 获取dataFilter值
+     */
+    public Object dataFilter() {
+        return this.dataFilter;
+    }
+
+    /**
+     * 设置dataFilter值
+     *
+     * @param dataFilter
+     */
+    public Line dataFilter(Object dataFilter) {
+        this.dataFilter = dataFilter;
+        return this;
+    }
+
+    /**
+     * 设置dataFilter值
+     *
+     * @param dataFilter
+     */
+    public Line dataFilter(DataFilter dataFilter) {
+        this.dataFilter = dataFilter;
+        return this;
     }
 
     /**
@@ -83,5 +116,21 @@ public class Line extends Series<Line> {
      */
     public void setSmooth(Boolean smooth) {
         this.smooth = smooth;
+    }
+
+    /**
+     * 获取dataFilter值
+     */
+    public Object getDataFilter() {
+        return dataFilter;
+    }
+
+    /**
+     * 设置dataFilter值
+     *
+     * @param dataFilter
+     */
+    public void setDataFilter(Object dataFilter) {
+        this.dataFilter = dataFilter;
     }
 }

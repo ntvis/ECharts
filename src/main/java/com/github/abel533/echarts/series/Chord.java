@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -263,7 +263,7 @@ public class Chord extends Series<Chord> {
      *
      * @return
      */
-    public Boolean ribbonType(){
+    public Boolean ribbonType() {
         return this.ribbonType;
     }
 
@@ -273,7 +273,7 @@ public class Chord extends Series<Chord> {
      * @param ribbonType
      * @return
      */
-    public Chord ribbonType(Boolean ribbonType){
+    public Chord ribbonType(Boolean ribbonType) {
         this.ribbonType = ribbonType;
         return this;
     }
@@ -480,34 +480,66 @@ public class Chord extends Series<Chord> {
         return this;
     }
 
+    /**
+     * 获取categories值
+     */
     public List<Category> getCategories() {
         return categories;
     }
 
+    /**
+     * 设置categories值
+     *
+     * @param categories
+     */
     public void setCategories(List<Category> categories) {
         this.categories = categories;
     }
 
+    /**
+     * 获取nodes值
+     */
     public List<Node> getNodes() {
         return nodes;
     }
 
+    /**
+     * 设置nodes值
+     *
+     * @param nodes
+     */
     public void setNodes(List<Node> nodes) {
         this.nodes = nodes;
     }
 
+    /**
+     * 获取links值
+     */
     public List<Link> getLinks() {
         return links;
     }
 
+    /**
+     * 设置links值
+     *
+     * @param links
+     */
     public void setLinks(List<Link> links) {
         this.links = links;
     }
 
-    public Boolean getRibbonType() {
+    /**
+     * 获取ribbonType值
+     */
+	public Boolean getRibbonType() {
         return ribbonType;
     }
 
+    /**
+     * 设置ribbonType值
+     *
+     * @param ribbonType
+     */
     public void setRibbonType(Boolean ribbonType) {
         this.ribbonType = ribbonType;
     }
@@ -665,6 +697,7 @@ public class Chord extends Series<Chord> {
 
     /**
      * 设置minRadius值
+     *
      * @param minRadius
      */
     public void setMinRadius(Integer minRadius) {
@@ -673,6 +706,7 @@ public class Chord extends Series<Chord> {
 
     /**
      * 获取maxRadius值
+     *
      * @return
      */
     public Integer getMaxRadius() {
@@ -681,6 +715,7 @@ public class Chord extends Series<Chord> {
 
     /**
      * 设置maxRadius值
+     *
      * @param maxRadius
      */
     public void setMaxRadius(Integer maxRadius) {

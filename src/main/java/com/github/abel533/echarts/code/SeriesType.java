@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -41,4 +41,9 @@ public enum SeriesType {
     gauge,//仪表盘
     island,//孤岛
     eventRiver,//事件河流图
+    venn,//韦恩图
+    treemap,//矩形树图
+    wordCloud,//词云
+    tree,//树图
+    heatmap,//热力图
 }

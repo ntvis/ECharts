@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -543,7 +543,7 @@ public class Force extends Series<Force> {
     /**
      * 获取roam值
      */
-    public Object roam(){
+    public Object roam() {
         return this.roam;
     }
 
@@ -552,7 +552,7 @@ public class Force extends Series<Force> {
      *
      * @param roam
      */
-    public Force roam(Boolean roam){
+    public Force roam(Boolean roam) {
         this.roam = roam;
         return this;
     }
@@ -562,7 +562,7 @@ public class Force extends Series<Force> {
      *
      * @param roam
      */
-    public Force roam(Roam roam){
+    public Force roam(Roam roam) {
         this.roam = roam;
         return this;
     }

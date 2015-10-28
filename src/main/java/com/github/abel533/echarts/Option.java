@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -25,12 +25,17 @@
 package com.github.abel533.echarts;
 
 import com.github.abel533.echarts.axis.Axis;
+import com.github.abel533.echarts.code.Easing;
+import com.github.abel533.echarts.code.Symbol;
 import com.github.abel533.echarts.code.Trigger;
+import com.github.abel533.echarts.option.NoDataLoadingOption;
 import com.github.abel533.echarts.series.Series;
 import com.github.abel533.echarts.style.ItemStyle;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -38,8 +43,9 @@ import java.util.List;
  *
  * @author liuzh
  */
-public class Option implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
+public class Option implements Serializable {
+
+    private static final long serialVersionUID = 4664955083296866542L;
 
     /**
      * 全图默认背景，（详见backgroundColor），默认为无，透明
@@ -59,7 +65,7 @@ public class Option implements java.io.Serializable {
      */
     private Boolean calculable;
     /**
-     * 是否开启动画，默认开启，（详见 animation，相关的还有 addDataAnimation， animationThreshold， animationDuration， animationEasing）
+     * 是否启用图表初始化动画，默认开启，建议IE8-关闭，（详见 animation，相关的还有 addDataAnimation， animationThreshold， animationDuration， animationEasing）
      */
     private Boolean animation;
     /**
@@ -91,14 +97,13 @@ public class Option implements java.io.Serializable {
      */
     private DataZoom dataZoom;
     /**
+     * 缩放漫游组件（详见RoamController）,数据缩放漫游选择
+     */
+    private RoamController roamController;
+    /**
      * 直角坐标系内绘图网格（详见grid）
      */
     private Grid grid;
-
-    /**
-     * 极坐标
-     */
-    private List<Polar> polar;
     /**
      * 直角坐标系中横轴数组（详见xAxis），数组中每一项代表一条横轴坐标轴，标准（1.0）中规定最多同时存在2条横轴
      */
@@ -112,11 +117,264 @@ public class Option implements java.io.Serializable {
      */
     private List<Series> series;
     /**
+     * 极坐标
+     */
+    private List<Polar> polar;
+    /**
+     * 默认标志图形类型列表，循环使用
+     */
+    private List<Symbol> symbolList;
+    /**
+     * 拖拽重计算提示边框颜色
+     */
+    private String calculableColor;
+    /**
+     * 可计算占位提示颜色,默认值 '#ccc'
+     */
+    private String calculableHolderColo;
+    /**
+     * 数据合并名字间连接符,默认值'&'
+     */
+    private String nameConnector;
+    /**
+     * 数据合并名字与数值间连接符,默认值 ':'
+     */
+    private String valueConnector;
+    /**
+     * 是否启用动态数据接口动画效果，默认开启，建议IE8-关闭
+     */
+    private Boolean addDataAnimation;
+    /**
+     * 动画元素阀值，产生的图形原素超过2000不出动画，默认开启，建议IE8-关闭
+     */
+    private Integer animationThreshold;
+    /**
+     * 进入动画时长，单位ms
+     */
+    private Integer animationDuration;
+    /**
+     * 更新动画时长，单位ms
+     */
+    private Integer animationDurationUpdate;
+    /**
+     * 主元素的缓动效果
+     */
+    private Easing animationEasing;
+    /**
+     * 无数据时载入配置
+     */
+    private NoDataLoadingOption noDataLoadingOption;
+    /**
      * 当使用timeline时，每一组数据要放到单独的option中
      */
     private List<Option> options;
-
     private ItemStyle itemStyle;
+
+    /**
+     * 获取symbolList值
+     */
+    public List<Symbol> symbolList() {
+        return this.symbolList;
+    }
+
+    /**
+     * 设置symbolList值
+     *
+     * @param symbolList
+     */
+    public Option symbolList(List<Symbol> symbolList) {
+        if (this.symbolList == null) {
+            this.symbolList = new LinkedList<Symbol>();
+        }
+        this.symbolList = symbolList;
+        return this;
+    }
+
+    /**
+     * 设置symbolList值
+     *
+     * @param symbolList
+     */
+    public Option symbolList(Symbol... symbolList) {
+        if (symbolList == null || symbolList.length == 0) {
+            return this;
+        }
+        this.symbolList().addAll(Arrays.asList(symbolList));
+        return this;
+    }
+
+    /**
+     * 获取calculableColor值
+     */
+    public String calculableColor() {
+        return this.calculableColor;
+    }
+
+    /**
+     * 设置calculableColor值
+     *
+     * @param calculableColor
+     */
+    public Option calculableColor(String calculableColor) {
+        this.calculableColor = calculableColor;
+        return this;
+    }
+
+    /**
+     * 获取calculableHolderColo值
+     */
+    public String calculableHolderColo() {
+        return this.calculableHolderColo;
+    }
+
+    /**
+     * 设置calculableHolderColo值
+     *
+     * @param calculableHolderColo
+     */
+    public Option calculableHolderColo(String calculableHolderColo) {
+        this.calculableHolderColo = calculableHolderColo;
+        return this;
+    }
+
+    /**
+     * 获取nameConnector值
+     */
+	public String nameConnector() {
+        return this.nameConnector;
+    }
+
+    /**
+     * 设置nameConnector值
+     *
+     * @param nameConnector
+     */
+    public Option nameConnector(String nameConnector) {
+        this.nameConnector = nameConnector;
+        return this;
+    }
+
+    /**
+     * 获取valueConnector值
+     */
+	public String valueConnector() {
+        return this.valueConnector;
+    }
+
+    /**
+     * 设置valueConnector值
+     *
+     * @param valueConnector
+     */
+    public Option valueConnector(String valueConnector) {
+        this.valueConnector = valueConnector;
+        return this;
+    }
+
+    /**
+     * 获取addDataAnimation值
+     */
+	public Boolean addDataAnimation() {
+        return this.addDataAnimation;
+    }
+
+    /**
+     * 设置addDataAnimation值
+     *
+     * @param addDataAnimation
+     */
+	public Option addDataAnimation(Boolean addDataAnimation) {
+        this.addDataAnimation = addDataAnimation;
+        return this;
+    }
+
+    /**
+     * 获取animationThreshold值
+     */
+	public Integer animationThreshold() {
+        return this.animationThreshold;
+    }
+
+    /**
+     * 设置animationThreshold值
+     *
+     * @param animationThreshold
+     */
+    public Option animationThreshold(Integer animationThreshold) {
+        this.animationThreshold = animationThreshold;
+        return this;
+    }
+
+    /**
+     * 获取animationDuration值
+     */
+	public Integer animationDuration() {
+        return this.animationDuration;
+    }
+
+    /**
+     * 设置animationDuration值
+     *
+     * @param animationDuration
+     */
+    public Option animationDuration(Integer animationDuration) {
+        this.animationDuration = animationDuration;
+        return this;
+    }
+
+    /**
+     * 获取animationDurationUpdate值
+     */
+	public Integer animationDurationUpdate() {
+        return this.animationDurationUpdate;
+    }
+
+    /**
+     * 设置animationDurationUpdate值
+     *
+     * @param animationDurationUpdate
+     */
+    public Option animationDurationUpdate(Integer animationDurationUpdate) {
+        this.animationDurationUpdate = animationDurationUpdate;
+        return this;
+    }
+
+	/**
+     * 获取animationEasing值
+	 */
+	public Easing animationEasing() {
+        return this.animationEasing;
+    }
+
+    /**
+     * 设置animationEasing值
+     *
+     * @param animationEasing
+     */
+	public Option animationEasing(Easing animationEasing) {
+        this.animationEasing = animationEasing;
+        return this;
+    }
+
+    /**
+     * 获取noDataLoadingOption值
+     */
+	public NoDataLoadingOption noDataLoadingOption() {
+        if (this.noDataLoadingOption == null) {
+            this.noDataLoadingOption = new NoDataLoadingOption();
+        }
+        return this.noDataLoadingOption;
+    }
+
+    /**
+     * 设置noDataLoadingOption值
+     *
+     * @param noDataLoadingOption
+     */
+    public Option noDataLoadingOption(NoDataLoadingOption noDataLoadingOption) {
+        this.noDataLoadingOption = noDataLoadingOption;
+        return this;
+    }
 
     /**
      * 获取itemStyle值
@@ -497,6 +755,16 @@ public class Option implements java.io.Serializable {
     }
 
     /**
+     * 数据缩放漫游选择（详见roamController）,数据缩放漫游选择
+     */
+    public RoamController roamController() {
+        if (this.roamController == null) {
+            this.roamController = new RoamController();
+        }
+        return this.roamController;
+    }
+
+    /**
      * 直角坐标系内绘图网格（详见grid）
      */
     public Grid grid() {
@@ -727,6 +995,22 @@ public class Option implements java.io.Serializable {
     }
 
     /**
+     * 获取roamController值
+     */
+    public RoamController getRoamController() {
+        return roamController;
+    }
+
+    /**
+     * 设置roamController值
+     *
+     * @param roamController
+     */
+    public void setRoamController(RoamController roamController) {
+        this.roamController = roamController;
+    }
+
+    /**
      * 获取grid值
      */
     public Grid getGrid() {
@@ -916,5 +1200,181 @@ public class Option implements java.io.Serializable {
      */
     public void setItemStyle(ItemStyle itemStyle) {
         this.itemStyle = itemStyle;
+    }
+
+	/**
+     * 获取symbolList值
+     */
+    public List<Symbol> getSymbolList() {
+        return symbolList;
+    }
+
+    /**
+     * 设置symbolList值
+     *
+     * @param symbolList
+	 */
+	public void setSymbolList(List<Symbol> symbolList) {
+        this.symbolList = symbolList;
+    }
+
+	/**
+     * 获取calculableColor值
+     */
+    public String getCalculableColor() {
+        return calculableColor;
+    }
+
+    /**
+     * 设置calculableColor值
+     *
+     * @param calculableColor
+     */
+	public void setCalculableColor(String calculableColor) {
+        this.calculableColor = calculableColor;
+    }
+
+	/**
+     * 获取calculableHolderColo值
+	 */
+	public String getCalculableHolderColo() {
+        return calculableHolderColo;
+    }
+
+    /**
+     * 设置calculableHolderColo值
+     *
+     * @param calculableHolderColo
+     */
+	public void setCalculableHolderColo(String calculableHolderColo) {
+        this.calculableHolderColo = calculableHolderColo;
+    }
+
+	/**
+     * 获取nameConnector值
+     */
+    public String getNameConnector() {
+        return nameConnector;
+    }
+
+    /**
+     * 设置nameConnector值
+     *
+     * @param nameConnector
+	 */
+	public void setNameConnector(String nameConnector) {
+        this.nameConnector = nameConnector;
+    }
+
+	/**
+     * 获取valueConnector值
+     */
+    public String getValueConnector() {
+        return valueConnector;
+    }
+
+    /**
+     * 设置valueConnector值
+     *
+     * @param valueConnector
+     */
+	public void setValueConnector(String valueConnector) {
+        this.valueConnector = valueConnector;
+    }
+
+	/**
+     * 获取addDataAnimation值
+     */
+    public Boolean getAddDataAnimation() {
+        return addDataAnimation;
+    }
+
+    /**
+     * 设置addDataAnimation值
+     *
+     * @param addDataAnimation
+     */
+	public void setAddDataAnimation(Boolean addDataAnimation) {
+        this.addDataAnimation = addDataAnimation;
+    }
+
+	/**
+     * 获取animationThreshold值
+	 */
+    public Integer getAnimationThreshold() {
+        return animationThreshold;
+    }
+
+    /**
+     * 设置animationThreshold值
+     *
+     * @param animationThreshold
+     */
+	public void setAnimationThreshold(Integer animationThreshold) {
+        this.animationThreshold = animationThreshold;
+    }
+
+	/**
+     * 获取animationDuration值
+     */
+    public Integer getAnimationDuration() {
+        return animationDuration;
+    }
+
+    /**
+     * 设置animationDuration值
+     *
+     * @param animationDuration
+     */
+	public void setAnimationDuration(Integer animationDuration) {
+        this.animationDuration = animationDuration;
+    }
+
+    /**
+     * 获取animationDurationUpdate值
+	 */
+	public Integer getAnimationDurationUpdate() {
+        return animationDurationUpdate;
+    }
+
+    /**
+     * 设置animationDurationUpdate值
+     *
+     * @param animationDurationUpdate
+     */
+	public void setAnimationDurationUpdate(Integer animationDurationUpdate) {
+        this.animationDurationUpdate = animationDurationUpdate;
+    }
+
+	/**
+     * 获取animationEasing值
+     */
+    public Easing getAnimationEasing() {
+        return animationEasing;
+    }
+
+    /**
+     * 设置animationEasing值
+     *
+     * @param animationEasing
+     */
+	public void setAnimationEasing(Easing animationEasing) {
+        this.animationEasing = animationEasing;
+    }
+
+    /**
+     * 获取noDataLoadingOption值
+     */
+	public NoDataLoadingOption getNoDataLoadingOption() {
+        return noDataLoadingOption;
+    }
+
+    /**
+     * 设置noDataLoadingOption值
+     *
+     * @param noDataLoadingOption
+     */
+	public void setNoDataLoadingOption(NoDataLoadingOption noDataLoadingOption) {
+        this.noDataLoadingOption = noDataLoadingOption;
     }
 }

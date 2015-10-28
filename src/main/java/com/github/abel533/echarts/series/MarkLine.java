@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2014 abel533@gmail.com
+ * Copyright (c) 2014-2015 abel533@gmail.com
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,46 +33,6 @@ import com.github.abel533.echarts.style.ItemStyle;
  * @author liuzh
  */
 public class MarkLine extends AbstractData<MarkLine> {
-    /**
-     * 边捆绑
-     *
-     * @since 2.2.0
-     */
-    public static class Bundling{
-        private Boolean enable;
-        private Integer maxTurningAngle;
-        public Boolean enable(){
-            return this.enable;
-        }
-        public Bundling enable(Boolean enable){
-            this.enable = enable;
-            return this;
-        }
-        public Integer maxTurningAngle(){
-            return this.maxTurningAngle;
-        }
-        public Bundling maxTurningAngle(Integer maxTurningAngle){
-            this.maxTurningAngle = maxTurningAngle;
-            return this;
-        }
-
-        public Boolean getEnable() {
-            return enable;
-        }
-
-        public void setEnable(Boolean enable) {
-            this.enable = enable;
-        }
-
-        public Integer getMaxTurningAngle() {
-            return maxTurningAngle;
-        }
-
-        public void setMaxTurningAngle(Integer maxTurningAngle) {
-            this.maxTurningAngle = maxTurningAngle;
-        }
-    }
-
     /**
      * 标线起始和结束的symbol介绍类型，如果都一样，可以直接传string，同series中的symbol
      *
@@ -149,7 +109,7 @@ public class MarkLine extends AbstractData<MarkLine> {
      *
      * @param bundling
      */
-    public MarkLine bundling(Bundling bundling){
+    public MarkLine bundling(Bundling bundling) {
         this.bundling = bundling;
         return this;
     }
@@ -157,7 +117,7 @@ public class MarkLine extends AbstractData<MarkLine> {
     /**
      * 获取平滑度
      */
-    public Double smoothness(){
+    public Double smoothness() {
         return this.smoothness;
     }
 
@@ -166,7 +126,7 @@ public class MarkLine extends AbstractData<MarkLine> {
      *
      * @param smoothness
      */
-    public MarkLine smoothness(Double smoothness){
+    public MarkLine smoothness(Double smoothness) {
         this.smoothness = smoothness;
         return this;
     }
@@ -174,7 +134,7 @@ public class MarkLine extends AbstractData<MarkLine> {
     /**
      * 获取小数精度
      */
-    public Integer precision(){
+    public Integer precision() {
         return this.precision;
     }
 
@@ -183,7 +143,7 @@ public class MarkLine extends AbstractData<MarkLine> {
      *
      * @param precision
      */
-    public MarkLine precision(Integer precision){
+    public MarkLine precision(Integer precision) {
         this.precision = precision;
         return this;
     }
@@ -435,27 +395,127 @@ public class MarkLine extends AbstractData<MarkLine> {
         this.smooth = smooth;
     }
 
+    /**
+     * 获取smoothness值
+     */
     public Double getSmoothness() {
         return smoothness;
     }
 
+    /**
+     * 设置smoothness值
+     *
+     * @param smoothness
+     */
     public void setSmoothness(Double smoothness) {
         this.smoothness = smoothness;
     }
 
+    /**
+     * 获取precision值
+     */
     public Integer getPrecision() {
         return precision;
     }
 
+    /**
+     * 设置precision值
+     *
+     * @param precision
+     */
     public void setPrecision(Integer precision) {
         this.precision = precision;
     }
 
+    /**
+     * 获取bundling值
+     */
     public Bundling getBundling() {
         return bundling;
     }
 
+    /**
+     * 设置bundling值
+     *
+     * @param bundling
+     */
     public void setBundling(Bundling bundling) {
         this.bundling = bundling;
+    }
+
+    /**
+     * 边捆绑
+     *
+     * @since 2.2.0
+     */
+    public static class Bundling {
+        private Boolean enable;
+        private Integer maxTurningAngle;
+
+        /**
+         * 获取enable值
+         */
+	public Boolean enable() {
+        return this.enable;
+    }
+
+        /**
+         * 设置enable值
+         *
+         * @param enable
+         */
+        public Bundling enable(Boolean enable) {
+            this.enable = enable;
+        return this;
+    }
+
+        /**
+         * 获取maxTurningAngle值
+         */
+	public Integer maxTurningAngle() {
+        return this.maxTurningAngle;
+    }
+
+        /**
+         * 设置maxTurningAngle值
+         *
+         * @param maxTurningAngle
+         */
+        public Bundling maxTurningAngle(Integer maxTurningAngle) {
+            this.maxTurningAngle = maxTurningAngle;
+            return this;
+        }
+
+	/**
+     * 获取enable值
+     */
+    public Boolean getEnable() {
+        return enable;
+    }
+
+        /**
+         * 设置enable值
+         *
+	 * @param enable
+	 */
+	public void setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+
+        /**
+         * 获取maxTurningAngle值
+	 */
+	public Integer getMaxTurningAngle() {
+        return maxTurningAngle;
+    }
+
+        /**
+         * 设置maxTurningAngle值
+         *
+         * @param maxTurningAngle
+         */
+	public void setMaxTurningAngle(Integer maxTurningAngle) {
+            this.maxTurningAngle = maxTurningAngle;
+        }
     }
 }
